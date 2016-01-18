@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>局部放电信号识别器</title>
+	<link rel="stylesheet" href="{{ url_for('static',      filename='results.css') }}"></head>
+<body>
+	<h3>您输入的局部放电数据:</h3>
+	<div><p  id='pdContent'>{{ content }}</p></div>
+	<h3>识别器的预测结果:</h3>
+	<div>
+		该局放信号属于<strong>{{ prediction }}</strong>
+		(预测概率为: {{ probability }}%).
+	</div>
+	<div id='button'>
+		<form action="/thanks" method="post">
+			<input type=submit value='正确' name='feedback_button'>
+			<input type=submit value='错误,应该是Type 1' name='feedback_button'>
+			<input type=submit value='错误,应该是Type 2' name='feedback_button'>
+			<input type=submit value='错误,应该是Type 3' name='feedback_button'>
+			<input type=submit value='错误,应该是Type 4' name='feedback_button'>
+			<input type=submit value='错误,应该是Type 5' name='feedback_button'>
+			<input type=hidden value='{{ prediction }}' name='prediction'>
+			<input type=hidden value='{{ content }}' name='review'></form>
+	</div>
+	<div id='button'>
+		<form action="/">
+			<input type=submit value='继续测试'></form>
+	</div>
+</body>
+</html>

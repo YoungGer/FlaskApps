@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+	<title>局部放电信号识别器</title>
+</head>
+<body>
+	<h2>请输入需要测试的局部放电信号：</h2>
+	{% from "_formhelpers.html" import render_field %}
+	<form method=post action="/results">
+		<dl>{{ render_field(form.pdreview, cols='30', rows='10') }}</dl>
+		<div>
+			<input type=submit value='确认并提交' name='submit_btn'></div>
+	</form>
+</body>
+</html>
